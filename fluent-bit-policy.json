@@ -1,0 +1,16 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "logs:PutLogEvents",
+        "logs:DescribeLogStreams",
+        "logs:DescribeLogGroups",
+        "logs:CreateLogStream",
+        "logs:CreateLogGroup"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    }
+  ]
+}
