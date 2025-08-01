@@ -44,5 +44,7 @@ helm repo update
 4. Install fluent bit using helm
 
 ```bash
-
+helm install fluent-bit fluent/fluent-bit \
+  --namespace kube-system \
+  -f fluentbit-values.yaml
 ```
