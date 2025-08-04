@@ -36,55 +36,65 @@ aws iam attach-role-policy \
   --policy-arn arn:aws:iam::400095111010:policy/lambda-eks-policy
 ```
 
-2. Create lambda function with ```lambda.py``` script attach the above role 
+2. To authenticate EKS cluster to AWS Services need to add below content with in auth-config file
+
+```bash
+mapRoles: |
+    - rolearn: arn:aws:iam::<account-number>:role/<role-name>
+      username: <role-name>
+      groups:
+        - system:masters
+```
+
+3. Create lambda function with ```lambda.py``` script attach the above role 
 
 ![Lambda_creation](./images/lambda-creation.jpg)
 
-3. Adding Layer to Lambda function
+4. Adding Layer to Lambda function
 
 ![Layer_Usage_in_Lambda](./images/layer_usage_in_lambda.jpg)
 
-4. Create SNS Topic to trigger Lambda Function
+5. Create SNS Topic to trigger Lambda Function
 
 ![trigger_lambda_function](./images/trigger_lambda_function.jpg)
 
-5. Create Subscription to trigger Lambda function
+6. Create Subscription to trigger Lambda function
 
 ![Subscription_to_trigger_Lambda](./images/subscription_to_trigger_lambda.jpg)
 
-6. Create Custom metric under cloudwatch loggroups using metric filter
+7. Create Custom metric under cloudwatch loggroups using metric filter
 
 ![metric_filter](./images/metric_filter.jpg)
 
-7. Select filter pattern
+8. Select filter pattern
 
 ![filter_pattern](./images/filter-pattern.jpg)
 
-8. Specify details for filter name and metric namespace
+9. Specify details for filter name and metric namespace
 
 ![Assign_metric_name](./images/assign-metric-name.jpg)
 
-9. Review and Create metric
+10. Review and Create metric
 
 ![Review_and_Create_metric](./images/review-create-metric.png)
 
-10. Create Alarm to send notifications to SNS
+11. Create Alarm to send notifications to SNS
 
 ![Start_Creating_Alarm](./images/start-creating-alarm.jpg)
 
-11. Select Custom Namespace under Alarm
+12. Select Custom Namespace under Alarm
 
 ![Select_Custom_Namespace](./images/select-custom-namespace.jpg)
 
-12. Select Metric name under Alarm
+13. Select Metric name under Alarm
 
 ![Select_Metric_Name](./images/select-metric-for-alarm.jpg)
 
-13. Specify Metric and Conditions
+14. Specify Metric and Conditions
 
 ![Specify_Metric_and_Conditions](./images/specify_metric_and_conditions.jpg)
 
-14. Select SNS topic for alarm
+15. Select SNS topic for alarm
 
 ![Slect_SNS_Topic](./images/select-sns-topic.jpg)
 
