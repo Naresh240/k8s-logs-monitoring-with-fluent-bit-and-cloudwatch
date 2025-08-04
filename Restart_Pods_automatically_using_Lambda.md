@@ -40,10 +40,10 @@ aws iam attach-role-policy \
 
 ```bash
 mapRoles: |
-    - rolearn: arn:aws:iam::<account-number>:role/<role-name>
-      username: <role-name>
-      groups:
-        - system:masters
+  - rolearn: arn:aws:iam::<account-number>:role/<role-name>
+    username: <role-name>
+    groups:
+      - system:masters
 ```
 
 3. Create lambda function with ```lambda.py``` script attach the above role 
