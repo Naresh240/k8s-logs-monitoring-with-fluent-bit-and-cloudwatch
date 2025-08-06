@@ -1,5 +1,9 @@
 # Restart Pods Automatically using Lambda
 
+## Architecture overview — How it works
+
+![Architecture overview](./images/authentication.jpg)
+
 ## Creating zip file to add Layer to lambda if not exists, here I am already providing ```python.zip``` file
 
 ```bash
