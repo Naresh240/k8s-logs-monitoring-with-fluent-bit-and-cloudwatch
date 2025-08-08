@@ -9,7 +9,7 @@ EKS Cluster
 ## Enable OIDC in EKS cluster
 
 ```bash
-eksctl utils associate-iam-oidc-provider --region=us-east-1 --cluster=eksdemo
+eksctl utils associate-iam-oidc-provider --region=us-east-1 --cluster=eksdemo --approve
 ```
 
 ## Fluent-bit Setup

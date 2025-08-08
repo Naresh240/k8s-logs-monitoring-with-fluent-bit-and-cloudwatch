@@ -1,0 +1,40 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Action": [
+				"logs:PutLogEvents",
+				"logs:DescribeLogStreams",
+				"logs:DescribeLogGroups",
+				"logs:CreateLogStream",
+				"logs:CreateLogGroup",
+				"logs:FilterLogEvents",
+				"logs:GetLogEvents"
+			],
+			"Effect": "Allow",
+			"Resource": "*"
+		},
+		{
+			"Effect": "Allow",
+			"Action": [
+				"sts:GetCallerIdentity"
+			],
+			"Resource": "*"
+		},
+		{
+			"Effect": "Allow",
+			"Action": [
+				"eks:DescribeCluster"
+			],
+			"Resource": "*"
+		},		
+		{
+			"Effect": "Allow",
+			"Action": [
+				"secretsmanager:GetSecretValue",
+				"secretsmanager:DescribeSecret"
+			],
+			"Resource": "*"
+		}
+	]
+}

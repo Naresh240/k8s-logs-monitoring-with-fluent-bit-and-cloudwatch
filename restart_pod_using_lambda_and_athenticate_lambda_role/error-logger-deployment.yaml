@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: error-logs-demo
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: error-logger
+  namespace: error-logs-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: error-logger
+  template:
+    metadata:
+      labels:
+        app: error-logger
+    spec:
+      containers:
+      - name: logger
+        image: python:3.9
+        command: ["python"]
+        args:
+          - -c
+          - |
+            import time, random, logging
+            logging.basicConfig(level=logging.INFO)
+            while True:
+                level = random.choice(['INFO', 'DEBUG', 'WARNING', 'ERROR'])
+                msg = f"{level} - Simulated log event"
+                if level == 'ERROR':
+                    logging.error(msg)
+                elif level == 'WARNING':
+                    logging.warning(msg)
+                elif level == 'DEBUG':
+                    logging.debug(msg)
+                else:
+                    logging.info(msg)
+                time.sleep(2)
