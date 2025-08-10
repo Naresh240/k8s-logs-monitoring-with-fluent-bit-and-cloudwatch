@@ -1,5 +1,7 @@
 # Restart Pods Automatically using Lambda
 
+![Overview](./../images/Overview.jpg)
+
 ## Creating zip file to add Layer to lambda if not exists, here I am already providing ```python.zip``` file
 
 ```bash
@@ -51,6 +53,10 @@ aws iam attach-role-policy \
 3. Create lambda function with ```lambda.py``` script attach the above role and also add kubernetes ```kubeconfig``` file with the name of ```lambda-kubeconfig```
 
 ![Lambda_creation](./../images/lambda-creation.jpg)
+
+Below we can see file structure
+
+![List_files](./../images/lambda_files.jpg)
 
 4. Adding Layer to Lambda function
 
